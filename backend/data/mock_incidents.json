@@ -1,20 +1,22 @@
 [
   {
     "id": 1,
-    "location": [24.4539, 54.3773],
-    "severity": "High",
+    "lat": 24.4539,
+    "lng": 54.3773,
     "type": "Construction Debris",
+    "severity": "High",
     "status": "Open",
     "timestamp": "2023-10-27T08:30:00",
-    "image_url": "/assets/trash_example_1.jpg"
+    "description": "Large pile of cement bags."
   },
   {
     "id": 2,
-    "location": [24.4600, 54.3800],
-    "severity": "Medium",
+    "lat": 24.4600,
+    "lng": 54.3800,
     "type": "Household Waste",
+    "severity": "Medium",
     "status": "Resolved",
     "timestamp": "2023-10-26T14:15:00",
-    "image_url": "/assets/trash_example_2.jpg"
+    "description": "Black plastic bags."
   }
 ]

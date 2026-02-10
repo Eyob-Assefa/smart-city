@@ -1,0 +1,22 @@
+[
+  {
+    "id": 101,
+    "name": "Al-Futtaim Construction",
+    "license_type": "Commercial",
+    "waste_limit": 5000,
+    "current_waste": 4200,
+    "status": "Warning",
+    "last_disposal": "2023-10-25",
+    "tags": ["Over Limit Risk", "Pending Clearance"]
+  },
+  {
+    "id": 102,
+    "name": "Green Home Renovations",
+    "license_type": "Residential",
+    "waste_limit": 1000,
+    "current_waste": 200,
+    "status": "Good",
+    "last_disposal": "2023-10-27",
+    "tags": ["Compliant"]
+  }
+]

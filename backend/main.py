@@ -50,4 +50,33 @@ async def detect_trash(file: UploadFile = File(...)):
         "message": "This is a mock AI response."
     }
 
+@app.get("/api/stats")
+def get_stats():
+    """
+    Returns simple statistics for the dashboard.
+    """
+    # Load the data
+    with open(INCIDENTS_FILE, "r") as f:
+        data = json.load(f)
+        
+    # Calculate stats
+    total = len(data)
+    pending = sum(1 for i in data if i.get('status') == 'Pending' or i.get('status') == 'Open')
+    resolved = total - pending
+    
+    return {
+        "total_incidents": total,
+        "pending_cases": pending,
+        "resolved_cases": resolved
+    }
+
+@app.get("/api/users")
+def get_users():
+    """Returns list of registered contractors for Preventive Mode"""
+    path = os.path.join("data", "mock_users.json")
+    if not os.path.exists(path):
+        return []
+    with open(path, "r") as f:
+        return json.load(f)
+
 # Run with: uvicorn main:app --reload
