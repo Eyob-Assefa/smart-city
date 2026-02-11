@@ -45,24 +45,16 @@ export default function LandingPage() {
     return (
         <div className="relative h-[calc(100vh-64px)] w-full overflow-hidden flex">
             <Head>
-                <title>EcoGuard AD | Command Center</title>
+                <title>Abu Dhabi Smart City </title>
             </Head>
-
-            {/* --- 1. LEFT PANEL: REPORTING (50% WIDTH) --- */}
-            {/* - Added 'bg-cover bg-center' and the backgroundImage style directly here.
-               - Removed 'backdrop-blur' and global dark bg to make image clear.
-               - Added a subtle gradient overlay inside to ensure top text readability.
-            */}
             <aside 
                 className="relative w-1/2 h-full flex flex-col border-r border-white/20 shadow-2xl text-white p-10 bg-cover bg-center"
                 style={{ 
                     backgroundImage: "url('/images/smart-city.jpg')",
                 }}
             >
-                {/* Subtle gradient overlay for better text contrast at the top */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40 z-0"></div>
                 
-                {/* Content Container (z-10 to sit on top of overlay) */}
                 <div className="relative z-10 flex flex-col h-full">
                     {/* Header */}
                     <div className="mb-10">
@@ -70,32 +62,27 @@ export default function LandingPage() {
                         <p className="text-sm text-green-300 font-mono tracking-widest uppercase drop-shadow-md">System Online • Live Metrics</p>
                     </div>
 
-                    {/* 2x2 Grid */}
-                    {/* Kept bg-black/40 on these specific boxes so they pop out from the clear background */}
                     <div className="grid grid-cols-2 gap-8 mb-auto">
                         
-                        {/* Metric 1 */}
                         <div className="p-4 border-l-4 border-green-500 bg-black/40 rounded backdrop-blur-md shadow-lg">
                             <span className="text-xs text-gray-200 uppercase tracking-wider block mb-1">AI Accuracy</span>
                             <span className="text-5xl font-bold">{stats.accuracy}%</span>
                             <div className="text-green-400 text-xs font-mono mt-2">OPTIMAL</div>
                         </div>
 
-                        {/* Metric 2 */}
                         <div className="p-4 border-l-4 border-blue-500 bg-black/40 rounded backdrop-blur-md shadow-lg">
                             <span className="text-xs text-gray-200 uppercase tracking-wider block mb-1">Active Sensors</span>
                             <span className="text-5xl font-bold">{stats.sites_monitored}</span>
                             <div className="text-blue-300 text-xs font-mono mt-2">COVERAGE</div>
                         </div>
 
-                        {/* Metric 3 */}
+
                         <div className="p-4 border-l-4 border-yellow-500 bg-black/40 rounded backdrop-blur-md shadow-lg">
                             <span className="text-xs text-gray-200 uppercase tracking-wider block mb-1">Pending Review</span>
                             <span className="text-5xl font-bold text-yellow-400">{stats.pending_contractors}</span>
                             <div className="text-yellow-200 text-xs font-mono mt-2">ALERTS</div>
                         </div>
 
-                        {/* Metric 4 */}
                         <div className="p-4 border-l-4 border-red-500 bg-black/40 rounded backdrop-blur-md shadow-lg">
                             <span className="text-xs text-gray-200 uppercase tracking-wider block mb-1">Active Incidents</span>
                             <span className="text-5xl font-bold text-red-400">{stats.active_alerts}</span>
@@ -104,7 +91,6 @@ export default function LandingPage() {
 
                     </div>
 
-                    {/* Simple Footer */}
                     <div className="mt-8 border-t border-white/20 pt-4">
                          <p className="text-sm text-white drop-shadow-md italic">
                             "Real-time monitoring enabled. Data is refreshed every 30 seconds."
@@ -113,7 +99,6 @@ export default function LandingPage() {
                 </div>
             </aside>
 
-            {/* --- 2. RIGHT PANEL: MAP (50% WIDTH) --- */}
             <main className="relative z-10 w-1/2 h-full shadow-2xl bg-gray-100">
                 <MapWithNoSSR incidents={incidents} />
             </main>
