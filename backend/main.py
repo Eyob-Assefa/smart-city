@@ -1,5 +1,6 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Response
 from fastapi.middleware.cors import CORSMiddleware
+from ai_models.inference import detect_trash_in_image, analyze_truck_load
 import json
 import os
 
@@ -93,5 +94,21 @@ def assign_task(incident_id: int, team_id: str):
     In a real app, this would send an SMS/Telegram to the driver.
     """
     return {"status": "success", "message": f"Team {team_id} dispatched to Incident #{incident_id}"}
+
+@app.post("/api/analyze-truck")
+async def api_analyze_truck(file: UploadFile = File(...)):
+    """Receives a truck image and returns volume estimates + base64 processed image."""
+    image_bytes = await file.read()
+    
+    # Run the computer vision function
+    stats, processed_image_bytes = analyze_truck_load(image_bytes)
+    
+    import base64
+    base64_encoded_img = base64.b64encode(processed_image_bytes).decode("utf-8")
+    
+    return {
+        "stats": stats,
+        "processed_image_base64": f"data:image/jpeg;base64,{base64_encoded_img}"
+    }
 
 # Run with: uvicorn main:app --reload
