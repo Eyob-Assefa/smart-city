@@ -79,4 +79,19 @@ def get_users():
     with open(path, "r") as f:
         return json.load(f)
 
+@app.get("/api/teams")
+def get_teams():
+    """Returns list of cleaning crews."""
+    path = os.path.join("data", "mock_teams.json")
+    if not os.path.exists(path): return []
+    with open(path, "r") as f: return json.load(f)
+
+@app.post("/api/assign")
+def assign_task(incident_id: int, team_id: str):
+    """
+    Mock endpoint to assign a team to an incident.
+    In a real app, this would send an SMS/Telegram to the driver.
+    """
+    return {"status": "success", "message": f"Team {team_id} dispatched to Incident #{incident_id}"}
+
 # Run with: uvicorn main:app --reload
