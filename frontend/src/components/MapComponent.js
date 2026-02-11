@@ -14,6 +14,9 @@ const MapComponent = ({ incidents }) => {
     // Default center: Abu Dhabi
     const position = [24.4539, 54.3773];
 
+    // Use image provided by the backend (`incident.image`).
+    // Expect paths like `/images/incident-1.jpg` served from `public/`.
+
     return (
         <MapContainer center={position} zoom={13} style={{ height: '100%', width: '100%' }}>
             <TileLayer
@@ -24,7 +27,10 @@ const MapComponent = ({ incidents }) => {
             {incidents.map((incident) => (
                 <Marker key={incident.id} position={[incident.lat, incident.lng]}>
                     <Popup>
-                        <div className="p-2">
+                        <div className="p-2 max-w-xs">
+                            {incident.image ? (
+                                <img src={incident.image} alt={incident.type} className="w-full h-36 object-cover rounded mb-2" />
+                            ) : null}
                             <h3 className="font-bold">{incident.type}</h3>
                             <p className="text-sm text-gray-600">{incident.description}</p>
                             <span className={`text-xs px-2 py-1 rounded ${
@@ -32,6 +38,7 @@ const MapComponent = ({ incidents }) => {
                             }`}>
                                 {incident.severity}
                             </span>
+                            {incident.image ? <div className="text-xs text-gray-500 mt-1">(image)</div> : null}
                         </div>
                     </Popup>
                 </Marker>

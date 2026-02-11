@@ -11,8 +11,6 @@ const HeatmapLayer = dynamic(() => import('../components/HeatmapLayer'), { ssr: 
 export default function MonitorPage() {
   const [incidents, setIncidents] = useState([]);
   const [selectedIncident, setSelectedIncident] = useState(null);
-  const [aiResult, setAiResult] = useState(null);
-  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/incidents')
@@ -21,28 +19,7 @@ export default function MonitorPage() {
   }, []);
 
 
-  const handleImageUpload = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    setUploading(true);
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-
-      const res = await axios.post('http://127.0.0.1:8000/api/detect', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
-      setAiResult(res.data); 
-      setSelectedIncident(null); 
-    } catch (err) {
-      console.error("AI Detection Failed", err);
-      alert("Error running AI model");
-    } finally {
-      setUploading(false);
-    }
-  };
+  
 
   return (
     <div className="flex h-[calc(100vh-64px)]"> 
@@ -56,14 +33,13 @@ export default function MonitorPage() {
           
           <HeatmapLayer points={incidents} />
 
-          {incidents.map((incident) => (
+            {incidents.map((incident) => (
             <Marker 
               key={incident.id} 
               position={[incident.lat, incident.lng]}
               eventHandlers={{
                 click: () => {
                   setSelectedIncident(incident);
-                  setAiResult(null); 
                 },
               }}
             />
@@ -84,16 +60,7 @@ export default function MonitorPage() {
         </h2>
 
  
-        <div className="mb-8 p-6 bg-white rounded-lg shadow-md border border-gray-200">
-          <h3 className="font-semibold text-gray-700 mb-2">Run New AI Detection</h3>
-          <input 
-            type="file" 
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
-          />
-          {uploading && <p className="text-blue-600 mt-2 animate-pulse">Running YOLOv8 Model...</p>}
-        </div>
+        
 
  
         {selectedIncident ? (
@@ -112,6 +79,11 @@ export default function MonitorPage() {
             </div>
             
             <div className="mt-4 border-t pt-4">
+              {selectedIncident.image ? (
+                <div className="mb-4">
+                  <img src={selectedIncident.image} alt={selectedIncident.type} className="w-full h-48 object-cover rounded" />
+                </div>
+              ) : null}
               <p className="text-gray-700">{selectedIncident.description}</p>
               <div className="mt-4 grid grid-cols-2 gap-4">
                 <div className="bg-gray-100 p-3 rounded">
@@ -125,40 +97,7 @@ export default function MonitorPage() {
               </div>
             </div>
           </div>
-        ) : aiResult ? (
-         
-          <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-green-500">
-            <h3 className="text-xl font-bold text-green-800 mb-2">✅ AI Detection Complete</h3>
-            
-            <div className="flex gap-4 mb-4">
-              <div className="flex-1">
-                 <p className="text-sm text-gray-600">Detected Items:</p>
-                 <ul className="list-disc pl-5 mt-1">
-                   {aiResult.detections.map((d, i) => (
-                     <li key={i} className="font-bold text-gray-800">
-                       {d.type} <span className="text-gray-400 font-normal">({d.confidence * 100}%)</span>
-                     </li>
-                   ))}
-                 </ul>
-              </div>
-              
-              <div className="text-right">
-                <p className="text-sm text-gray-600">Estimated Severity</p>
-                <p className={`text-2xl font-bold ${
-                  aiResult.severity === 'High' ? 'text-red-600' : 'text-yellow-600'
-                }`}>
-                  {aiResult.severity}
-                </p>
-              </div>
-            </div>
-
-       
-            <div className="bg-gray-100 p-4 rounded text-center text-gray-500 text-sm">
-              Processed Image Preview
-            </div>
-          </div>
         ) : (
-    
           <div className="text-center text-gray-400 mt-20">
             <p className="text-6xl mb-4">🗺️</p>
             <p>Select a point on the map or upload an image to analyze.</p>
