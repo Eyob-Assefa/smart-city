@@ -4,10 +4,17 @@
     "name": "Al-Futtaim Construction",
     "license_type": "Commercial",
     "waste_limit": 5000,
-    "current_waste": 4200,
+    "current_waste": 4800,
     "status": "Warning",
     "last_disposal": "2023-10-25",
-    "tags": ["Over Limit Risk", "Pending Clearance"]
+    "tags": ["Over Limit Risk", "Pending Clearance"],
+    "credit_score": 2,
+    "compliance_prediction": 45,
+    "history": [
+      { "date": "2023-10-10", "type": "Concrete", "amount": "1200kg", "status": "Legal Dump" },
+      { "date": "2023-10-18", "type": "Mixed Debris", "amount": "800kg", "status": "Legal Dump" },
+      { "date": "2023-10-25", "type": "Unknown", "amount": "1000kg", "status": "Unverified" }
+    ]
   },
   {
     "id": 102,
@@ -17,6 +24,12 @@
     "current_waste": 200,
     "status": "Good",
     "last_disposal": "2023-10-27",
-    "tags": ["Compliant"]
+    "tags": ["Compliant"],
+    "credit_score": 5,
+    "compliance_prediction": 98,
+    "history": [
+      { "date": "2023-09-15", "type": "Wood/Drywall", "amount": "300kg", "status": "Legal Dump" },
+      { "date": "2023-10-27", "type": "Plumbing", "amount": "150kg", "status": "Legal Dump" }
+    ]
   }
 ]
