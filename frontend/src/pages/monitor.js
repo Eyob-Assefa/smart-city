@@ -13,7 +13,7 @@ export default function MonitorPage() {
   const [selectedIncident, setSelectedIncident] = useState(null);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/incidents')
+    axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/incidents')
       .then(res => setIncidents(res.data))
       .catch(err => console.error(err));
   }, []);

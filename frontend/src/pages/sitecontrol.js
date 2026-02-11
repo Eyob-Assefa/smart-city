@@ -28,7 +28,7 @@ export default function SiteControl() {
       const formData = new FormData();
       formData.append('file', file);
 
-      const res = await axios.post('http://127.0.0.1:8000/api/analyze-truck', formData, {
+      const res = await axios.post(process.env.NEXT_PUBLIC_API_URL + '/api/analyze-truck', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 

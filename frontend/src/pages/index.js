@@ -21,8 +21,8 @@ export default function LandingPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const incRes = await axios.get('http://127.0.0.1:8000/api/incidents');
-                const userRes = await axios.get('http://127.0.0.1:8000/api/users');
+                const incRes = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/incidents');
+                const userRes = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/users');
                 
                 setIncidents(incRes.data);
 

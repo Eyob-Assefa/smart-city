@@ -10,8 +10,8 @@ export default function OperationsPage() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const incRes = await axios.get('http://127.0.0.1:8000/api/incidents');
-        const teamRes = await axios.get('http://127.0.0.1:8000/api/teams');
+        const incRes = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/incidents');
+        const teamRes = await axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/teams');
         // Only show 'Open' or 'Pending' incidents
         setIncidents(incRes.data.filter(i => i.status !== 'Resolved'));
         setTeams(teamRes.data);

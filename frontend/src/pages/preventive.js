@@ -6,7 +6,7 @@ export default function PreventivePage() {
   const [selectedUser, setSelectedUser] = useState(null); // Controls the Modal popup
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/users')
+    axios.get(process.env.NEXT_PUBLIC_API_URL + '/api/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   }, []);
