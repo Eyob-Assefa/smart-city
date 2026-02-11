@@ -1,0 +1,5 @@
+[
+  { "id": "T-01", "name": "Alpha Squad", "status": "Available", "location": "Al Bateen" },
+  { "id": "T-02", "name": "Beta Squad", "status": "Busy", "location": "Khalifa City" },
+  { "id": "T-03", "name": "Gamma Squad", "status": "Available", "location": "Yas Island" }
+]
