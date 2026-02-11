@@ -53,7 +53,7 @@ export default function MonitorPage() {
       </div>
 
      
-      <div className="w-1/2 h-full bg-gray-50 p-6 overflow-y-auto">
+      <div className="w-1/2 h-full bg-[#FAF9F6] p-6 overflow-y-auto">
         
         <h2 className="text-2xl font-bold mb-4 text-gray-800">
           🔍 Incident Analysis

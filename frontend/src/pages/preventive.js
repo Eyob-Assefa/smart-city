@@ -22,7 +22,7 @@ export default function PreventivePage() {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto relative">
+    <div className="min-h-screen bg-[#FAF9F6] p-8 relative">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">Preventive Compliance Tracking</h1>
       
       <div className="bg-white shadow-lg rounded-lg overflow-x-auto">

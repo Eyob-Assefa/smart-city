@@ -40,7 +40,7 @@ export default function OperationsPage() {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#FAF9F6] p-8">
       <h1 className="text-3xl font-bold mb-2 text-gray-800">📋 Operations Command Center</h1>
       <p className="text-gray-500 mb-8">Assign cleaning crews to verified incidents.</p>
 
