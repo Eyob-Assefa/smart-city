@@ -24,12 +24,172 @@
     "current_waste": 200,
     "status": "Good",
     "last_disposal": "2023-10-27",
-    "tags": ["Compliant"],
+    "tags": ["Compliant", "Eco-Friendly"],
     "credit_score": 5,
     "compliance_prediction": 98,
     "history": [
       { "date": "2023-09-15", "type": "Wood/Drywall", "amount": "300kg", "status": "Legal Dump" },
       { "date": "2023-10-27", "type": "Plumbing", "amount": "150kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Arabtec Engineering",
+    "license_type": "Industrial",
+    "waste_limit": 15000,
+    "current_waste": 14200,
+    "status": "Critical",
+    "last_disposal": "2023-10-28",
+    "tags": ["High Volume", "Audit Required"],
+    "credit_score": 1,
+    "compliance_prediction": 15,
+    "history": [
+      { "date": "2023-10-20", "type": "Steel Scraps", "amount": "5000kg", "status": "Legal Dump" },
+      { "date": "2023-10-28", "type": "Chemical Waste", "amount": "2000kg", "status": "Flagged" }
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Abu Dhabi National Hotels",
+    "license_type": "Commercial",
+    "waste_limit": 2500,
+    "current_waste": 1100,
+    "status": "Good",
+    "last_disposal": "2023-10-26",
+    "tags": ["Compliant"],
+    "credit_score": 4,
+    "compliance_prediction": 88,
+    "history": [
+      { "date": "2023-10-01", "type": "Organic/Food", "amount": "400kg", "status": "Legal Dump" },
+      { "date": "2023-10-26", "type": "Packaging", "amount": "700kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Titan Demolition Services",
+    "license_type": "Industrial",
+    "waste_limit": 8000,
+    "current_waste": 7800,
+    "status": "Warning",
+    "last_disposal": "2023-10-24",
+    "tags": ["Near Limit", "Watchlist"],
+    "credit_score": 3,
+    "compliance_prediction": 60,
+    "history": [
+      { "date": "2023-10-12", "type": "Rubble", "amount": "3500kg", "status": "Legal Dump" },
+      { "date": "2023-10-24", "type": "Asbestos", "amount": "500kg", "status": "Pending Review" }
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Yas Island Landscaping",
+    "license_type": "Commercial",
+    "waste_limit": 3000,
+    "current_waste": 450,
+    "status": "Good",
+    "last_disposal": "2023-10-29",
+    "tags": ["Green Business", "Recycler"],
+    "credit_score": 5,
+    "compliance_prediction": 99,
+    "history": [
+      { "date": "2023-10-15", "type": "Green Waste", "amount": "200kg", "status": "Composted" },
+      { "date": "2023-10-29", "type": "Soil/Turf", "amount": "250kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Skyline Towers Ltd",
+    "license_type": "Construction",
+    "waste_limit": 12000,
+    "current_waste": 5000,
+    "status": "Good",
+    "last_disposal": "2023-10-22",
+    "tags": ["Compliant"],
+    "credit_score": 4,
+    "compliance_prediction": 92,
+    "history": [
+      { "date": "2023-10-05", "type": "Concrete", "amount": "2000kg", "status": "Legal Dump" },
+      { "date": "2023-10-22", "type": "Glass/Metal", "amount": "3000kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Quick Fix Plumbers",
+    "license_type": "Residential",
+    "waste_limit": 500,
+    "current_waste": 600,
+    "status": "Critical",
+    "last_disposal": "2023-10-28",
+    "tags": ["Over Limit", "Illegal Dump Risk"],
+    "credit_score": 1,
+    "compliance_prediction": 10,
+    "history": [
+      { "date": "2023-10-20", "type": "Pipes/PVC", "amount": "400kg", "status": "Legal Dump" },
+      { "date": "2023-10-28", "type": "Ceramics", "amount": "200kg", "status": "Unverified Site" }
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Etihad Rail Project B",
+    "license_type": "Government",
+    "waste_limit": 50000,
+    "current_waste": 12000,
+    "status": "Good",
+    "last_disposal": "2023-10-27",
+    "tags": ["Large Scale", "Priority"],
+    "credit_score": 5,
+    "compliance_prediction": 97,
+    "history": [
+      { "date": "2023-10-10", "type": "Excavation", "amount": "8000kg", "status": "Legal Dump" },
+      { "date": "2023-10-27", "type": "Gravel", "amount": "4000kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Desert Cooling Systems",
+    "license_type": "Commercial",
+    "waste_limit": 2000,
+    "current_waste": 1800,
+    "status": "Warning",
+    "last_disposal": "2023-10-26",
+    "tags": ["Approaching Limit"],
+    "credit_score": 3,
+    "compliance_prediction": 65,
+    "history": [
+      { "date": "2023-10-02", "type": "Metal Parts", "amount": "1000kg", "status": "Legal Dump" },
+      { "date": "2023-10-26", "type": "Insulation", "amount": "800kg", "status": "Legal Dump" }
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Masdar City Development",
+    "license_type": "Commercial",
+    "waste_limit": 10000,
+    "current_waste": 1500,
+    "status": "Good",
+    "last_disposal": "2023-10-29",
+    "tags": ["Sustainable", "Leader"],
+    "credit_score": 5,
+    "compliance_prediction": 99,
+    "history": [
+      { "date": "2023-10-15", "type": "Solar Panels", "amount": "500kg", "status": "Recycled" },
+      { "date": "2023-10-29", "type": "Packaging", "amount": "1000kg", "status": "Recycled" }
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Old Souq Traders",
+    "license_type": "Retail",
+    "waste_limit": 800,
+    "current_waste": 850,
+    "status": "Critical",
+    "last_disposal": "2023-10-25",
+    "tags": ["Violation", "Fine Issued"],
+    "credit_score": 1,
+    "compliance_prediction": 25,
+    "history": [
+      { "date": "2023-10-20", "type": "Cardboard", "amount": "400kg", "status": "Legal Dump" },
+      { "date": "2023-10-25", "type": "Plastic", "amount": "450kg", "status": "Street Dump" }
     ]
   }
 ]
